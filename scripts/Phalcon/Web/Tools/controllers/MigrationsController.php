@@ -30,6 +30,9 @@ class MigrationsController extends ControllerBase
     protected function _getMigrationsDir()
     {
         $migrationsDir = 'app/migrations';
+        if (is_dir('apps')) {
+          $migrationsDir = 'apps/migrations';
+        }
         if (!file_exists($migrationsDir)) {
             mkdir($migrationsDir);
         }
